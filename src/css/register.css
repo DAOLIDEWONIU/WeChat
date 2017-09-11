@@ -1,0 +1,170 @@
+.register-outer{
+    box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.2rem;
+    background: #f0f0f0;
+    z-index:100;
+}
+.register-outer .logo{
+    width: 2.35rem;
+    height:2.86rem;
+    margin: 1.16rem auto 0.78rem;
+}
+
+.register-outer .logo img{
+    display:block ;
+    width: 100%;
+    height:100%;
+}
+/*注册正文*/
+.register-outer .register-cont{
+    background: #f0f0f0;
+    position: relative;
+    z-index:66;
+}
+.register-outer .common-ipt{
+    padding: 0.3rem;
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    margin-bottom: 0.29rem;
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+.register-outer .phone{
+    position: relative;
+}
+.register-outer .comicon{
+    display: block;
+    float: left;
+    height: inherit;
+    line-height: .4rem;
+    text-align: center;
+    margin-right: 0.1rem;
+    font-size: .4rem;
+    color: #878181;
+}
+.register-outer .iptout{
+    width:5.5rem;
+    height:0.4rem;
+    line-height:0.4rem;
+    float: left;
+    border: none;
+    outline:none;
+    font-size: 0.35rem;
+    -webkit-appearance: none;
+}
+.register-outer .username{
+    width:3.4rem;
+}
+.register-outer .removeout{
+    float: left;
+    height:.4rem;
+    visibility: hidden;
+}
+.register-outer .showremove{
+    visibility: visible;
+}
+.register-outer .removeicon{
+    display: block;
+    font-size: 0.34rem;
+    color: #575555;
+}
+.register-outer .btn-phonecode{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 1px solid #19b4ea;
+    display: block;
+    width: 2.11rem;
+    height: 100%;
+    background: #19b4ea;
+    font-size: .3rem;
+    color: #fff;
+    padding:0;
+}
+.register-outer .regi-btn-out{
+    margin-bottom: 0.4rem;
+}
+.register-outer .regi-btn-in{
+    display: block;
+    width:100%;
+    height:1rem;
+    background: #19b4ea url("../imgs/button.png") repeat-x 0 0;
+    text-align: center;
+    line-height:1rem;
+    border: none;
+    outline:none;
+    font-size: 0.38rem;
+    color: #add1df;
+    border-radius: 3px;
+}
+.register-outer .btnchange{
+    color: #fff;
+}
+
+.register-outer .forget{
+    float: right;
+}
+.register-outer .forget a{
+    display: block;
+    font-size: 0.3rem;
+    color: #000;
+}
+.register-outer .reg-login{
+    position: absolute;
+    bottom: .2rem;
+    left: 50%;
+    -ms-transform:translate(-50%,-50%);
+    -o-tranform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width:2rem;
+    height:.7rem;
+    border: 1px solid #19b4ea;
+    line-height:.7rem;
+    text-align: center;
+    border-radius: 3px;
+}
+.register-outer .reg-login a{
+    font-size: .34rem;
+    display: block;
+    color: #19b4ea;
+}
+/*弹出窗*/
+.register-outer .popup{
+    /*display: none;*/
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:80%;
+    height:1.58rem;
+    background: #262626;
+    border-radius: 6px;
+    -ms-transform:translate(-50%,50%);
+    -o-tranform:translate(-50%,50%);
+    -webkit-transform:translate(-50%,50%);
+    -moz-transform:translate(-50%,50%);
+    transform: translate(-50%,50%);
+    text-align: center;
+    line-height:1.58rem;
+    font-size: .3rem;
+    color: #fff;
+    box-shadow: 1px 2px 20px 1px rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: all .3s;
+    z-index:65;
+}
+.register-outer .popupshow{
+    z-index:67;
+    opacity: 1;
+    transition: all .3s;
+}

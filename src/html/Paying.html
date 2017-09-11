@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <!--清除缓存-->
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>缴费</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_nxf0maipkddbzkt9.css">
+    <link rel="stylesheet" href="../css/Paying.css">
+</head>
+<body>
+    <div class="flexouter">
+        <div class="payout">
+            <div class="payin">
+                <ul>
+                    <li><div class="paytitle">订单号：</div><div class="payinfo" id="orderNo"></div></li>
+                    <li><div class="paytitle">户号：</div><div class="payinfo" id="customerNo"></div></li>
+                    <li><div class="paytitle">支付金额：</div><div class="payinfo" id="price" style="color: #70dd7d;"></div></li>
+                    <li><div class="paytitle">商品描述：</div><div class="payinfo">水&nbsp;费&nbsp;(&nbsp;water fee&nbsp;)</div></li>
+                </ul>
+                <div>
+                    <button class="paybtn" id="paybtn" onclick="order_Pay()" >确认支付</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/rem.js"></script>
+    <script src="../js/jquery-2.2.4.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        if(sessionStorage.formData == 'OPENID出错'){
+            alert('数据出错，请退出重新再试！')
+        }
+        var myarray = JSON.parse(sessionStorage.formData);
+        // 传递户号信息
+        var price = sessionStorage.getItem("price"),
+            customerNo = sessionStorage.getItem("customerNo");
+        $("#customerNo").html(customerNo);
+        $("#price").html(price);
+        $("#orderNo").html(myarray["out_trade_no"]);
+        var appId = myarray["appId"],
+            timeStamp = myarray["timestamp"],
+            timestamp3 = myarray["timestamp3"],
+            timestamp4 = myarray["timestamp4"],
+            nonceStr = myarray["noncestr"],
+            noncestr3 = myarray["noncestr3"],
+            noncestr4 = myarray["noncestr4"],
+            returnNonce_str = myarray["returnNonce_str"],
+            paypackage = "prepay_id="+myarray["prepayId"],
+            sign = myarray["sign"],
+            paySign = myarray["paySign"],
+            paySign2 = myarray["paySign2"],
+            paySign3 = myarray["paySign3"],
+            signature = myarray["signature"],//config
+            returnSign = myarray["returnSign"];
+        var wx;
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: appId, // 必填，公众号的唯一标识
+            timestamp: timestamp4, // 必填，生成签名的时间戳
+            nonceStr: noncestr4, // 必填，生成签名的随机串
+            signature: signature, // 必填，签名，见附录1
+            jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+        function order_Pay() {
+            wx.ready(function () {
+                wx.chooseWXPay({
+                        appId: appId,
+                        nonceStr: noncestr3,
+                        package: paypackage,
+                        paySign: paySign3 ,
+                        signType: 'MD5',
+                        timestamp: timestamp3,
+                        success: function (res) {
+                            if(res.errMsg == "chooseWXPay:ok" ) { //支付成功
+                                $("#paybtn").attr("disabled",true).css("background","#F4C6C0");
+                                alert("支付成功");
+                                window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc08820bd9d3c1bf9&redirect_uri=http://www.zsyltec.com/WeChat/dist/html/Oppenid.html&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+                            }else{
+                                alert(res.errMsg);
+                                window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc08820bd9d3c1bf9&redirect_uri=http://www.zsyltec.com/WeChat/dist/html/Oppenid.html&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+                            }
+                        },
+                        cancel:function(res){ //支付取消
+                            $("#paybtn").attr("disabled",false).css("background","#D84E43");
+                            alert("您取消了支付");
+                        }
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

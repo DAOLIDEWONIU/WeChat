@@ -1,0 +1,27 @@
+{
+  "name": "wechat",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "WeChat",
+  "license": "ISC",
+  "description": "WeChat",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-imagemin": "^3.1.1",
+    "imagemin-pngcrush": "^5.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-jshint": "^2.0.2",
+    "jshint": "^2.9.4",
+    "gulp-uglify": "^2.0.0",
+    "lrz": "^4.9.40"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "eruda": "^1.2.4",
+    "xml2js": "^0.4.19"
+  }
+}

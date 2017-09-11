@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>西充县泓源水务有限公司</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <!--<link rel="stylesheet" href="../css/iconfont.css">-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_j1orjf6sf9a4i.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="icon" href="../imgs/ico/logo.ico">
+    <script>
+        /*
+         *重置浏览器的高度===对于有些手机存在导航栏，底部功能区遮挡页面内容===
+         */
+        document.documentElement.style.height = window.innerHeight + 'px';
+        console.log(document.documentElement.style.height);
+    </script>
+</head>
+<body>
+<div class="load-container loading">
+    <p class="iconfont">&#xe608;</p>
+    <div class="load">loading</div>
+</div>
+<div class="flexouter">
+    <div class="index">
+        <!--历史记录-->
+        <div class="recharge commoninner" id="Histories0">
+            <!--充值-->
+            <div class="common-ipt recharge-cont">
+                <!--<p>姓名: <span class="mes">1212</span></p>-->
+                <!--<p>户号: <span class="mes">1212</span></p>-->
+                <!--<p>缴费状态: <span class="money">-130.00(欠款)</span></p>-->
+            </div>
+            <div class="common-ipt">
+                <p style="height:.4rem;line-height:.4rem;">充值额度: <input type="number" class="moneynum"><button class="moneybtn">去充值</button></p>
+            </div>
+            <!--历史记录-->
+            <div class="common-ipt"  style="padding:0 0 .6rem 0;">
+                <div class="history-top clearfloat"><i class="iconfont icon-cart-iconfont history-btn"></i><span>历史记录</span> <a id="refresh" class="iconfont icon-refresh-iconfont" href="javascript:;">刷新</a></div>
+                <div class="history-nav clearfloat">
+                    <ul class="clearfloat change">
+                        <li class="history-common" id="singlechart">
+                            <a href="javascript:;" class="showthisbtn">图表</a>
+                            <i class="piont-this"></i>
+                        </li>
+                        <li class="history-common " id="allchart"><a href="javascript:;">全部</a></li>
+                    </ul>
+                </div>
+                <div class="history showthishistory" >
+                    <div id="hismain">
+                        <div id="main" style="width: 7.1rem;height:6.2rem;"></div>
+                    </div>
+                </div>
+                <div class="history history-all-cont "  style="width: 7.1rem;height:6.2rem;">
+                    <ul class="clearfloat title-nav">
+                        <li>月份</li>
+                        <li>月购水额</li>
+                        <li>月购水量</li>
+                    </ul>
+                    <div class="chartinner">
+                        <table>
+                            <tbody class="list-month-mes"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="history history-month-cont "  style="width: 7.1rem;height:6.2rem;">
+                </div>
+            </div>
+        </div>
+        <!--home-->
+        <div id="home" class="commondisplayno showthispage">
+            <!--背景-->
+            <div class="banner-cont">
+                <div class="usermes-cont">
+                    <div id="unloadImg">
+                        <img src="../imgs/index/userphoto.png" alt="图片" />
+                        <input type="file" accept="image/*" class="fileImg" />
+                    </div>
+                    <p class="tel"></p>
+                </div>
+            </div>
+            <!--内容-->
+            <div class="index-cont">
+                <!--修改个人信息-->
+                <ul class="cont-list clearfloat">
+                    <li class="clearfloat">
+                        <div class="cont-word">姓名</div>
+                        <div class="entry-mes name"></div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="cont-word">户号</div>
+                        <div class="entry-mes userNo"></div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="cont-word">年龄</div>
+                        <div class="entry-mes Age"></div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="cont-word">性别</div>
+                        <div class="entry-mes check sex"></div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="cont-word">Q Q</div>
+                        <div class="entry-mes qq">
+                        </div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="cont-word">微信</div>
+                        <div class="entry-mes wechat">
+                        </div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="cont-word">地址</div>
+                        <div class="entry-mes adrr">
+                        </div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="cont-word" style="width:34%;"><i class="iconfont rmb"></i>上次结余 : </div>
+                        <div class="entry-mes surplus" style="width:65%;">
+                        </div>
+                    </li>
+                    <li class="clearfloat last">
+                        <ul class="meter-list lastul clcik-innerBtn">
+                            <!--<li>-->
+                                <!--<div class="left-cont"><p>户号: <span class='num'>1212121</span></p></div>-->
+                                <!--<div class='right-cont'>-100.00 <i class="guide"></i></div>-->
+                            <!--</li>-->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--查询缴费-->
+        <div id="query" class="commondisplayno QueryCont">
+            <div class="serchout">
+                <i class="iconfont SearchIcon">&#xe6a4;</i><input class="iptuserNo" id="iptuserNo" type="number" name="number"  placeholder="请输入查询户号">
+                <label class="removeout">
+                    <i class="iconfont icon-close-iconfont removeicon"></i>
+                </label>
+            </div>
+            <div class="serchout" style="margin-top:.4rem;">
+                <i class="iconfont SearchIcon">&#xe6c7;</i><input class="iptuserNo" id="tel" type="tel" name="tel" maxlength="11"  placeholder="请输入预留手机号">
+                <label class="removeout">
+                    <i class="iconfont icon-close-iconfont removeicon"></i>
+                </label>
+            </div>
+            <div class="Query-Btn-outer"><button class="Query-Btn" name="ReturnCustomerArrearageInfo2" disabled>提交</button></div>
+            <div class="pay">
+            </div>
+        </div>
+        <!--我的-->
+        <div id="my" class="commondisplayno">
+            <!--背景-->
+            <div class="banner-cont">
+                <div class="usermes-cont">
+                    <div  id="enter-alter"> <img src="../imgs/index/userphoto.png" alt="图片"></div>
+                    <p class="tel"></p>
+                </div>
+            </div>
+            <!--内容-->
+            <div class="index-cont">
+                <!--修改密码-->
+                <ul class="cont-list">
+                    <li id="reset" class="clcik-innerBtn set clearfloat">
+                        <div class="cont-word" style="width: 20%;">修改密码</div>
+                        <div class="toright">
+                            <i class="iconfont cont-point"></i>
+                        </div>
+                    </li>
+                    <li id="bangding" class="set clearfloat">
+                        <div class="cont-word" style="width: 20%;">绑定户号</div>
+                        <div class="toright">
+                            <i class="iconfont cont-point"></i>
+                        </div>
+                    </li>
+                    <li id="RemoveBangDing" class="set clearfloat">
+                        <div class="cont-word" style="width: 20%;">解除绑定</div>
+                        <div class="toright">
+                            <i class="iconfont cont-point"></i>
+                        </div>
+                    </li>
+                    <li id="backtologin" class="set clearfloat buttombtn">
+                        <div class="cont-word backto" id="ToLogin" style="width: 100%;">退出当前账号</div>
+                    </li>
+                </ul>
+                <!--软件更新-->
+            </div>
+        </div>
+        <!--修改密码-->
+
+        <div class="reset-outer commoninner" id="resetpass2">
+            <!--修改密码-->
+            <div class="reset-cont">
+                <!--手机号-->
+                <div class="common-ipt phone clearfloat">
+                    <i class="iconfont icon-phone-iconfont comicon"></i>
+                    <input type="tel" class="iptout" style="width:3.74rem" id="username" maxlength="11" placeholder="请输入手机号" name="mobilePhoneNo"/>
+                    <div class="removeout" style="right: 2.11rem;">
+                        <i class="iconfont icon-close-iconfont removeicon"></i>
+                    </div>
+                    <button type="submit" class="btn-phonecode" name="SendMessageSms">发送验证码</button>
+                </div>
+                <!--密码-->
+                <div class="common-ipt pass clearfloat">
+                    <i class="iconfont icon-pass-iconfont comicon"></i>
+                    <input type="password" class="iptout" id="password" placeholder="请输入新密码" name="customerPass"/>
+                    <div class="removeout">
+                        <i class="iconfont icon-close-iconfont removeicon"></i>
+                    </div>
+                </div>
+                <!--验证码-->
+                <div class="common-ipt code clearfloat">
+                    <i class="iconfont icon-code-iconfont comicon"></i>
+                    <input type="text" class="iptout" id="code" maxlength="5" placeholder="请输入验证码" />
+                    <div class="removeout">
+                        <i class="iconfont icon-close-iconfont removeicon"></i>
+                    </div>
+                </div>
+                <!--确认按钮-->
+                <div class="reset-btn-out">
+                    <button type="submit" class="reset-btn-in reset-btn" id="reset-btn" name="ResetCustomerPass" disabled>确认</button>
+                </div>
+            </div>
+        </div>
+
+        <!--底部功能区-->
+        <div class="footer-fun clearfloat" id="footer-fun">
+            <ul class="ftul clearfloat">
+                <li class="clcik-Btn click-this li-change" id="home-btn">
+                    <a class="index-icon home" href="#home0">
+                        <i class="iconfont icon-home-iconfont"></i>
+                        <span class="nav-word word-change">首页</span>
+                        <span class="pulse"></span>
+                    </a>
+                </li>
+                <li id="query-btn" class="clcik-Btn">
+                    <a class="index-icon query" href="#query1">
+                        <i class="iconfont icon-query-iconfont"></i>
+                        <span class="nav-word">查询缴费</span>
+                        <span class="pulse"></span>
+                    </a>
+                </li>
+                <li id="my-btn" class="clcik-Btn">
+                    <a class="index-icon my" href="#my2">
+                        <i class="iconfont icon-my-iconfont"></i>
+                        <span class="nav-word">我的</span>
+                        <span class="pulse"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--弹窗提醒-->
+    <div class="popup"></div>
+    <!--提示蒙版-->
+    <div class="masking"></div>
+    <!--绑定户号提示内容-->
+    <div class="masking-cont">
+        <h3>绑定户号</h3>
+        <div class="maskinguserNo-cont">
+            <div class="clearfloat commondiv">
+                <input class="BangDingUserNo CommonIpt" type="number" placeholder="请输入需要绑定的户号" />
+            </div>
+            <div class="btnuseraction clearfloat">
+                <button class="quit" id="quit">取消</button>
+                <button class="sure" id="sure" name="BindingCustomerNo">确定</button>
+            </div>
+        </div>
+    </div>
+    <!--解除绑定户号-->
+    <div class="remove-masking-cont">
+        <h3>解除绑定户号</h3>
+        <div class="maskinguserNo-cont">
+            <div class="clearfloat commondiv">
+                <input type="tel" placeholder="请输入手机号" maxlength="11" class="CommonIpt remove-phone" id="remove-phone"><button type="submit" class="remove-btn-phonecode" id="Renovephonecode" name="SendMessageSms">发送验证码</button>
+            </div>
+            <div class="clearfloat commondiv">
+                <input type="text" placeholder="请输入验证码" maxlength="5" class="CommonIpt remove-code" id="remove-code">
+            </div>
+            <div class="clearfloat commondiv">
+                <input class="CommonIpt" id="BangDingUserNo" type="number" placeholder="请输入需要解除绑定的户号" />
+            </div>
+            <div class="btnuseraction clearfloat">
+                <button class="quit" id="removequit">取消</button>
+                <button class="sure" id="removesure" name="ChangeRegistered">确定</button>
+            </div>
+        </div>
+    </div>
+    <!--用户水费信息结果-->
+    <div class="result"></div>
+    <!--显示用户单月详细信息-->
+    <div class="user-month-mes">
+        <div class="user-month-mes-inner"></div>
+    </div>
+    <!--退出当前账号-->
+    <div class="exitOut" id="exitOut">
+        <div class="affirm">
+            <div class="affirm-title">确定要退出登录吗?</div>
+            <div class="affirm-sure">确 认</div>
+        </div>
+        <div class="cancel">取 消</div>
+    </div>
+</div>
+<script src="../js/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.load-container').fadeOut();
+        var hash = location.hash;
+
+        /*返回前进功能（根据id）*/
+        window.onhashchange = function(){
+            var hashCode = location.hash;
+            tab(hashCode.match(/\d+/g)[0]);
+            console.log(hashCode);
+        };
+
+        if(hash){
+            /*匹配href中的数字，依据这个来切换*/
+            tab(hash.match(/\d+/g)[0]);
+        }
+        $(".clcik-Btn").each(function (i) {
+            $(this).click(function () {
+                tab(i);
+            })
+        });
+
+        // 历史记录表单
+        $(".clcik-innerBtn").each(function (i) {
+            $(this).click(function () {
+//                $('.commondisplayno').siblings('.commondisplayno').hide();//外部
+                $('.commondisplayno').siblings('.commondisplayno').removeClass("showthispage");//外部
+                $(".index .commoninner").eq(i).addClass("innercommondisplayno")
+            });
+        });
+        /*刷新停留在当前页面功能*/
+        function tab(index){
+
+            $(".index .commoninner").removeClass("innercommondisplayno");
+            $('.commondisplayno').removeClass("showthispage").eq(index).addClass("showthispage");
+            $(".footer-fun li").siblings(".footer-fun li").removeClass("click-this").end().eq(index).addClass("click-this");//按钮图标切换
+            $(".footer-fun li .index-icon .nav-word").removeClass("word-change").eq(index).addClass("word-change");
+            $(".footer-fun li .index-icon").siblings(".footer-fun li .index-icon").removeClass("index-icon-change").end().eq(index).addClass("index-icon-change");
+
+        }
+
+    })
+
+
+
+</script>
+<script src="../js/rem.js"></script>
+<script src="../js/echarts.js"></script>
+<script src="../../node_modules/lrz/dist/lrz.bundle.js"></script>
+<script src="../js/lib/jquery.cookie.js"></script>
+<script src="../js/lib/jquery.base64.js"></script>
+<script src="../js/home.js"></script>
+<script src="../js/HomeHandle.js"></script>
+<script src="../js/homeHistoryChart.js"></script>
+<script src="../js/HomeAllChart.js"></script>
+<script src="../js/searchInfo.js"></script>
+<!--<script type="text/javascript" src="../js/OnlyWeChat.js"></script>-->
+
+
+
+</body>
+</html>

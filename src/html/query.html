@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <!--清除缓存-->
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>查询缴费</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_s2yz682xcgdxtj4i.css">
+    <link rel="stylesheet" href="../css/query.css">
+    <script>
+        /*
+         *重置浏览器的高度===对于有些手机存在导航栏，底部功能区遮挡页面内容===
+         */
+        document.documentElement.style.height = window.innerHeight + 'px';
+
+
+    </script>
+</head>
+<style>
+    h1{
+        border: dashed;
+    }
+</style>
+<body>
+<div class="load-container loading">
+    <p class="iconfont">&#xe608;</p>
+    <div class="load">loading</div>
+</div>
+<div class="flexouter">
+    <div class="index">
+        <!--查询缴费-->
+        <div id="query" class="commondisplayno QueryCont" style="display: block;">
+            <div class="serchout">
+                <i class="iconfont SearchIcon">&#xe6a4;</i><input class="iptuserNo" id="userNo" type="number" pattern="[0-9]*" name="number" value=""  placeholder="请输入查询户号">
+                <label class="removeout">
+                    <i class="iconfont icon-close-iconfont removeicon"></i>
+                </label>
+            </div>
+            <div class="serchout" style="margin-top:.4rem;">
+                <i class="iconfont SearchIcon">&#xe6c7;</i><input class="iptuserNo" id="phone" type="tel" name="tel" maxlength="11" value=""  placeholder="请输入预留手机号">
+                <label class="removeout">
+                    <i class="iconfont icon-close-iconfont removeicon"></i>
+                </label>
+            </div>
+            <input type="hidden" id="hid">
+            <div class="Query-Btn-outer"><button class="Query-Btn" name="ReturnCustomerArrearageInfo2" disabled>提&nbsp;&nbsp;交</button></div>
+        </div>
+        <!--APP弹出-->
+        <div class="for_app">
+            <div class="APP-cont">
+                <label>
+                    <i class="iconfont APP_Close icon-close-iconfont" id="APP_Close"></i>
+                </label>
+                <div class="app_logo"></div>
+                <div class="app_p">下载APP，查看更多信息</div>
+                <a class="APP_download" href="https://fir.im/z9yq?utm_source=fir&utm_medium=qr" download>立即下载</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹窗提醒-->
+<div class="PopupFix popup"></div>
+<!--结果-->
+<div class="result"></div>
+<!--提示蒙版-->
+<div class="masking"></div>
+<div class="other clearfloat">
+    <div class="other_left">
+        <div><i class="circle">1</i>点击右上角</div>
+        <div><i class="circle">2</i>在默认浏览器中打开并安装应用</div>
+    </div>
+    <div class="other_right"><i class="iconfont">&#xe792;</i></div>
+    <div class="close clearfloat"><i id="close" class="iconfont">&#xe6b1;</i></div>
+</div>
+<div class="el"></div>
+<script src="../js/jquery-1.12.2.js"></script>
+<!--<script src="../js/lib/fastclick.js"></script>-->
+<script src="../js/jquery.xml2json.js"></script>
+
+<!--<script src="../../node_modules/eruda/eruda.min.js"></script>-->
+<!--<script>-->
+    <!--$(function() {-->
+        <!--FastClick.attach(document.body);-->
+    <!--});-->
+    <!--var el = document.getElementsByClassName('el')[0];-->
+    <!--eruda.init({-->
+        <!--container: el,-->
+        <!--tool: ['console', 'elements']-->
+    <!--});-->
+<!--</script>-->
+<script>
+
+    $(document).ready(function () {
+        $('.load-container').fadeOut();
+        $("#APP_Close").click(function () {
+            $(".for_app").addClass("for_app_hide");
+        });
+        if(window.localStorage['UsermesArr'] === undefined){
+            console.log("数据出错，请稍后再试");
+        }else {
+            var userMES = JSON.parse(window.localStorage['UsermesArr']);
+            $("#userNo").val(userMES[1]);
+            $("#phone").val(userMES[0]);
+        }
+    });
+
+</script>
+<script src="../js/rem.js"></script>
+<script src="../js/query.js?v0.0.2"></script>
+<!--<script type="text/javascript" src="../js/OnlyWeChat.js"></script>-->
+
+</body>
+</html>

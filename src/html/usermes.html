@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>index</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/usermes.css">
+    <link rel="icon" href="../imgs/ico/logo.ico">
+</head>
+<script>
+    /*
+     *重置浏览器的高度===对于有些手机存在导航栏，底部功能区遮挡页面内容===
+     */
+    document.documentElement.style.height = window.innerHeight + 'px';
+</script>
+<body>
+<div class="flexouter">
+    <div class="index">
+    <!--背景-->
+    <div class="banner-cont">
+        <div class="usermes-cont">
+            <div id="unloadImg">
+                <img src="../imgs/index/userphoto.png" alt="图片" />
+                <input type="file" accept="image/*" class="fileImg" />
+            </div>
+            <p class="tel"></p>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="index-cont">
+        <!--修改个人信息-->
+        <ul class="cont-list clearfloat">
+            <li class="clearfloat">
+                <div class="cont-word">姓名</div>
+                <label class="entry-mes">
+                    <input class="form" type="text" id="usernamephone" placeholder="请输入您的姓名">
+                </label>
+            </li>
+            <li class="clearfloat">
+                <div class="cont-word">年龄</div>
+                <label class="entry-mes">
+                    <input class="form" type="number" id="age" placeholder="请输入您的年龄">
+                </label>
+            </li>
+            <li class="clearfloat">
+                <div class="cont-word">性别</div>
+                <label class="entry-mes"><input type="text" class="form" name="Sex" id="sex" placeholder="请输入您的性别"></label>
+            </li>
+            <li class="clearfloat">
+                <div class="cont-word">QQ</div>
+                <label class="entry-mes">
+                    <input class="form" type="number" id="qq" placeholder="请输入您的QQ">
+                </label>
+            </li>
+            <li class="clearfloat">
+                <div class="cont-word">微信</div>
+                <label class="entry-mes">
+                    <input class="form" type="text" id="wechat" placeholder="请输入您的微信号">
+                </label>
+            </li>
+            <li class="clearfloat">
+                <div class="cont-word">微博</div>
+                <label class="entry-mes">
+                    <input class="form" type="text" id="weibo" placeholder="请输入您的微博号">
+                </label>
+            </li>
+            <li class="clearfloat">
+                <div class="cont-word">爱好</div>
+                <label class="entry-mes">
+                    <input class="form" type="text" id="Favorite" placeholder="请输入您的爱好">
+                </label>
+            </li>
+            <li class="clearfloat">
+                <div class="cont-word">Email</div>
+                <label class="entry-mes">
+                    <input class="form" type="email" id="Email" placeholder="请输入您的电子邮件">
+                </label>
+            </li>
+            <li class="clearfloat">
+                <div class="cont-word">地址</div>
+                <label class="entry-mes">
+                    <input class="form" type="text" id="adrr" placeholder="请输入您的地址">
+                </label>
+            </li>
+            <!--保存-->
+            <li class="clearfloat last">
+                <button class="save" id="save" name="UpdateCustomerInfoByNO">保存</button>
+            </li>
+        </ul>
+        <!--软件更新-->
+    </div>
+    <div class="popup"></div>
+</div>
+</div>
+<script src="../js/rem.js"></script>
+<script src="../js/jquery-2.2.4.js"></script>
+<script src="../../node_modules/lrz/dist/lrz.bundle.js"></script>
+<script src="../js/lib/jquery.cookie.js"></script>
+<script src="../js/lib/jquery.base64.js"></script>
+<script src="../js/usermes.js"></script>
+<script src="../js/UpdateCustomerInfo.js"></script>
+<script type="text/javascript" src="../js/OnlyWeChat.js"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <!--清除缓存-->
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_poff0sj9lzgxpqfr.css">
+    <link rel="stylesheet" href="../css/query.css">
+    <title>预存水费</title>
+    <script>
+        /*
+         *重置浏览器的高度===对于有些手机存在导航栏，底部功能区遮挡页面内容===
+         */
+        document.documentElement.style.height = window.innerHeight + 'px';
+    </script>
+</head>
+<body>
+<div class="load-container loading">
+    <p class="iconfont">&#xe608;</p>
+    <div class="load">loading</div>
+</div>
+<div class="flexouter">
+    <div class="index">
+
+        <div id="query" class="commondisplayno QueryCont" style="display: block;">
+            <div class="usernoout clearfloat">
+                <span class="userno">户号：</span>
+                <span class="userno" id="userno"></span>
+            </div>
+            <div class="serchout clearfloat" style="margin-top:.4rem;background-color: #fff;">
+                <span class="money">金额</span>
+                <input class="iptuserNo" id="prestoremoney" type="number" oninput="if(value.length>4)value=value.slice(0,4)"  pattern="[0-9]*"  maxlength="4"  value=""  placeholder="请输入预存金额" style="text-align: left;">
+                <span class="mark">元</span>
+                <label class="removeout" style="right: 0.38rem;">
+                    <i class="iconfont icon-close-iconfont removeicon"></i>
+                </label>
+            </div>
+            <div class="showmoney" style="margin-top: 0.46rem;text-align: center;font-size: 0.34rem;">
+                <span style="font-size: 1rem;font-weight: 600;position: relative" id="LastMoney">0.00</span>
+            </div>
+            <div class="Query-Btn-outer"><button class="Query-Btn" name="ReturnCustomerArrearageInfo2" disabled>立即充值</button></div>
+        </div>
+        <!--APP弹出-->
+        <div class="for_app">
+            <div class="APP-cont">
+                <label>
+                    <i class="iconfont APP_Close icon-close-iconfont" id="APP_Close"></i>
+                </label>
+                <div class="app_logo"></div>
+                <div class="app_p">下载APP，查看更多信息</div>
+                <a class="APP_download" href="https://fir.im/z9yq?utm_source=fir&utm_medium=qr">立即下载</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹窗提醒-->
+<div class="PopupFix popup"></div>
+<script src="../js/rem.js"></script>
+<script src="../js/jquery-2.2.4.js"></script>
+<script src="../js/jquery.xml2json.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('.load-container').fadeOut();
+        $("#APP_Close").click(function () {
+            $(".for_app").addClass("for_app_hide");
+        });
+        var userinfo = JSON.parse(sessionStorage.formData);
+        $("#userno").html(userinfo[0]);
+        var LastMoney;
+        $(".iptuserNo").each(function (i) {
+            $(this).bind('input propertychange', function() {
+                //进行相关操作
+                var len = $(this).val().length;
+                 LastMoney = $(this).val();
+                if(LastMoney === ''){
+                    $("#LastMoney").html("0.00");
+                }else {
+                    //浮点
+                    var regfudian = /^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$/;
+                    //2位
+                    var reg2 = /^\d+(\.\d{1,2})?$/;
+                    //1位
+                    var reg1 = /^\d+(\.\d{0,1})?$/;
+
+                    if(!isNaN(LastMoney.substr(0,1)) == false){/**判断第一个数字为 “.” */
+                        $("#LastMoney").html("0.00");
+                    }else if(LastMoney.slice(0,1) == 0){/**判断第一个数字为 “.” */
+                        $("#LastMoney").html("0.00");
+                    } else {
+                        /**整数*/
+                        if(regfudian.test(LastMoney) === false){
+                            $("#LastMoney").html(LastMoney+".00");
+                        } else {
+                            /**小数*/
+                            if(reg1.test(LastMoney)){
+                                $("#LastMoney").html(LastMoney+"0");
+                            } else if(reg2.test(LastMoney)){
+                                $("#LastMoney").html(LastMoney);
+                            }
+                        }
+                    }
+                }
+                if(len >0){
+                    var UserNo = $("input[type='number']").val().length;
+                    if(UserNo >0 && LastMoney.slice(0,1) != 0 && !isNaN(LastMoney.substr(0,1)) == true){
+                        $(".removeicon").removeClass("removeshow").eq(i).addClass("removeshow");
+                        $(".Query-Btn").addClass("Query-Btn-change").removeAttr("disabled");
+                    }
+                }else {
+                    $(".removeicon").removeClass("removeshow");
+                    $(".Query-Btn").removeClass("Query-Btn-change").prop("disabled","disabled");
+                }
+            });
+            $(this).focus(function () {
+                if($(this).val() === ""){
+                    $(".removeicon").removeClass("removeshow");
+                }else {
+                    $(".removeicon").removeClass("removeshow").eq(i).addClass("removeshow");
+                }
+            });
+            var UserNo = $("input[type='number']").val().length;
+            if(UserNo >0 ){
+                $(".Query-Btn").addClass("Query-Btn-change").removeAttr("disabled");
+            }
+        });
+        //删除操作
+        $(".removeicon").each(function (i) {
+            $(this).click(function () {
+                $(this).removeClass("removeshow");
+                $(".Query-Btn").removeClass("Query-Btn-change").prop("disabled","disabled");
+                $(".iptuserNo").eq(i).val('').focus();
+                $("#LastMoney").html("0.00");
+            })
+        });
+        /*弹出层*/
+        function Popping(time) {
+            $(".popup").addClass("popupshow");
+            setTimeout(function () {
+                $(".popup").removeClass("popupshow");
+            }, time);
+        }
+
+//        充值
+        $(".Query-Btn").click(function () {
+            var initprice = $("#LastMoney").html();
+            var price = initprice.slice(0,initprice.length-3);
+            var pricedata = [];
+            console.log("初始价格"+initprice);
+            console.log("转换"+price);
+            var details = {
+                "subject": "水费",
+                "body":"水费",
+                "price": (parseInt(price)*100).toString()
+//                 "price": "1"  //测试：1  这里的单位是分
+            };
+            console.log(details);
+
+            sessionStorage.setItem("customerNo",userinfo[0]);
+            sessionStorage.setItem("price",price);
+            pricedata.push(userinfo[0],JSON.stringify(details),null,"1");
+            Get_Prepay_Id_Post("CustomerCharge_WeiXin",pricedata);
+
+        });
+
+        function Get_Prepay_Id_Post(Method,value) {
+            var data = "<?xml version='1.0' encoding='utf-8'?>" ;
+            data +="<soap:Envelope xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>";
+            data +="<soap:Body>";
+            data += "<"+Method+" xmlns='http://ws.zsyltec.com'>";
+            for(var i=0;i<value.length;i++){
+                data += '<in'+ i +'>'+value[i]+'</in'+i+'>';
+            }
+            data +='</'+Method+'>';
+            data +="</soap:Body>";
+            data +="</soap:Envelope>";
+            var ErrorData = [
+                {
+                    "ErrorMes":"调用发生错误"
+                }
+            ];
+            $.ajax({
+                url:"http://112.74.160.51:8084/AppWebService/AppData",
+                // http://112.74.160.51:8084/AppWebService/AppData?wsdl
+                type: "POST",
+                data:data,
+                beforeSend:function () {
+                    $(".popup").html("正在获取...").addClass("popupshow");
+                    $("#yes").prop("disabled","disabled");
+                },
+                success:function (data) {
+                    console.log('返回数据')
+                    var obj = $.xml2json(data).Body.CustomerCharge_WeiXinResponse.out;//取得文本
+                    console.log(obj);
+                    for (var i = 0 ,len = ErrorData.length; i < len; ++i){
+                        if(obj === ErrorData[i].ErrorMes){
+                            $(".popup").html("调用发生出错，正在返回首页").addClass("popupshow");
+                            setTimeout(function () {
+                                $(".popup").removeClass("popupshow");
+                                window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc08820bd9d3c1bf9&redirect_uri=http://www.zsyltec.com/WeChat/dist/html/Oppenid.html&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+                            }, 1500);
+                        }else {
+                            $(".popup").html("").removeClass("popupshow");
+                            sessionStorage.formData = obj;
+//                            window.location.replace("http://www.zsyltec.com/WeChat/dist/html/Paying.html");
+                            window.location.replace("../html/Paying.html");
+                        }
+                    }
+                },
+                error:function (data) {
+                    console.log(data.status);
+                    if(data.status === 500){
+                        $(".popup").html("服务器出错，请稍后再试");
+                        Popping(1500);
+                        $("#yes").removeAttr("disabled");
+                    }
+                }
+            });
+        }
+
+    });
+</script>
+</body>
+</html>

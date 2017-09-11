@@ -1,0 +1,30 @@
+CACHE MANIFEST
+# 第一行必须为CACHE MANIFEST
+# 需要缓存的放在CACHE下面
+CACHE:
+http://localhost:63342/WeChat1111/src/imgs/logo.png
+http://localhost:63342/WeChat1111/src/js/lib/jquery-2.2.4.js
+http://localhost:63342/WeChat1111/src/js/lib/jquery.cookie.js
+http://localhost:63342/WeChat1111/src/js/lib/jquery.base64.js
+http://localhost:63342/WeChat1111/src/js/rem.js
+http://localhost:63342/WeChat1111/src/js/login.js
+http://localhost:63342/WeChat1111/src/js/LoginUandle.js
+http://localhost:63342/WeChat1111/src/css/common.css
+http://localhost:63342/WeChat1111/src/css/login.css
+http://localhost:63342/WeChat1111/src/font/iconfont.js
+http://localhost:63342/WeChat1111/src/font/iconfont.css
+http://localhost:63342/WeChat1111/src/font/iconfont.eot?t=1480751388171 
+http://localhost:63342/WeChat1111/src/font/iconfont.eot?t=1480751388171#iefix
+http://localhost:63342/WeChat1111/src/font/iconfont.woff?t=1480751388171 
+http://localhost:63342/WeChat1111/src/font/iconfont.ttf?t=1480751388171
+http://localhost:63342/WeChat1111/src/font/iconfont.svg?t=1480751388171#iconfont 
+
+# 总是需要从网络上请求的放在NETWORK下面
+
+NETWORK:
+http://localhost:63342/WeChat1111/dist/html/login.html
+
+
+# 访问失败，重定向
+FALLBACK:
+http://localhost:63342/WeChat1111/dist/html/404.html

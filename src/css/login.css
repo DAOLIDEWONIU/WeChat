@@ -1,0 +1,259 @@
+.login-outer{
+    box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.2rem;
+    background: #f0f0f0;
+}
+.login-outer .logo{
+    width: 2.35rem;
+    height:2.86rem;
+    margin: .98rem auto 0.78rem;
+}
+
+.login-outer .logo img{
+    display:block ;
+    width: 100%;
+    height:100%;
+}
+.login-outer .login-cont{
+    background: #f0f0f0;
+    position: relative;
+    z-index:66;
+}
+.login-outer .common-ipt{
+    padding: 0.3rem;
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    margin-bottom: 0.29rem;
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+.login-outer .phoneicon{
+    display: block;
+    float: left;
+    height:0.4rem;
+    line-height:0.4rem;
+    margin-right:0.1rem;
+    font-size: .4rem;
+    color: #918787;
+}
+.login-outer .phoneicon:before{
+    content: "\e6c7";
+}
+
+.login-outer .passicon{
+    display: block;
+    float: left;
+    height:0.4rem;
+    line-height:0.4rem;
+    margin-right:0.1rem;
+    font-size: .4rem;
+    color: #918787;
+}
+.login-outer .passicon:before{
+    content: "\e620";
+}
+.login-outer .iptout{
+    width:5.5rem;
+    height:0.4rem;
+    line-height:0.4rem;
+    float: left;
+    border: none;
+    outline:none;
+    font-size: 0.35rem;
+    -webkit-appearance: none;
+}
+.login-outer .removeout{
+    visibility: hidden;
+    float: left;
+    height: .4rem;
+    line-height: .4rem;
+}
+.login-outer .showremove{
+    visibility: visible;
+}
+.login-outer .removeicon{
+    display: block;
+    font-size: 0.34rem;
+    color: #9f9f9f;
+}
+.login-outer .login-btn-out{
+    width:100%;
+    height:1rem;
+    margin-bottom: 0.29rem;
+    position: relative;
+}
+.login-outer .login-div-in{
+    position: absolute;
+    left:50%;
+    -webkit-transform:translate(-50%,0);
+    -moz-transform:translate(-50%,0);
+    -o-transform:translate(0,-50%);
+    transform:translate(-50%,0);
+    width:100%;
+    height:1rem;
+    background: #19b4ea url("../imgs/button.png") repeat-x 0 0;
+    border-radius: 3px;
+}
+
+.login-outer .login-btn-in{
+    display: block;
+    width:100%;
+    height:1rem;
+    background: #19B4EA;
+    position: relative;
+    text-align: center;
+    line-height:1rem;
+    border: none;
+    outline:none;
+    font-size: 0.38rem;
+    color: #add1df;
+    border-radius: 3px;
+    -moz-user-select: none;/*长按禁止复制选中*/
+    -webkit-user-select: none;
+}
+
+.login-outer .login-div-in_change{
+    width:1rem;
+    height:1rem;
+    border-radius: 50%;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    transition: all ease .3s;
+}
+.login-outer .loginload{
+    position: absolute;
+    top:0;
+    left:0;
+    line-height:0.8rem;
+    font-size: 0.8rem;
+    color: #19b4ea;
+    -webkit-transform:translate(-50%,0);
+    -moz-transform:translate(-50%,0);
+    -o-transform:translate(0,-50%);
+    transform:translate(-50%,0);
+    background: #f0f0f0;
+    animation:myfirst 1s infinite linear;
+    -moz-animation:myfirst 1s infinite linear; /* Firefox */
+    -webkit-animation:myfirst 1s infinite linear; /* Safari and Chrome */
+    -o-animation:myfirst 1s infinite linear; /* Opera */
+}
+
+@keyframes myfirst {
+    0% {
+        -webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }
+    100% {
+        -webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+        transform:rotate(360deg);
+    }
+}
+
+.login-outer .btnchange{
+    color: #fff;
+}
+.login-outer .forget{
+    float: right;
+}
+.login-outer .autoLogin{
+    float: left;
+    font-size: .3rem;
+}
+.login-outer label{
+    display:inline-block;
+    line-height:0.3rem;
+    color: #000;
+}
+.login-outer .checkbox{
+    display:block;
+    width:.34rem;
+    height:.34rem;
+    float: left;
+    border-radius:3px;
+    margin-right:0.05rem;
+    background:#fff;
+    border: 1px solid #cfcbcb;
+}
+.login-outer .autoLogin span{
+    display:block;
+    float: left;
+    height:.34rem;
+    line-height:.34rem;
+    font-style: normal;
+    color: #000;
+}
+.login-outer .forget a{
+    display: block;
+    font-size: 0.3rem;
+    color: #000;
+}
+.login-outer .reg-login{
+    width: 2rem;
+    height: .66rem;
+    line-height: .66rem;
+    text-align: center;
+    margin: 0.8rem auto 0;
+    -moz-user-select: none;/*长按禁止复制选中*/
+    -webkit-user-select: none;
+}
+.login-outer .reg-login a{
+    font-size: .34rem;
+    display: block;
+    color: #fff;
+    background: #19b4ea;
+    border-radius: 6px;
+    border: 1px solid #19b4ea;
+}
+/*弹出窗*/
+.login-outer .popup{
+    /*display: none;*/
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:80%;
+    height:1.58rem;
+    background: #262626;
+    border-radius: 6px;
+    -ms-transform:translate(-50%,-50%);
+    -o-tranform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    text-align: center;
+    line-height:1.58rem;
+    font-size: .3rem;
+    color: #fff;
+    box-shadow: 1px 2px 20px 1px rgba(0,0,0,0.5);
+    opacity: 0;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    z-index:65;
+    -moz-user-select: none;/*长按禁止复制选中*/
+    -webkit-user-select: none;
+}
+.login-outer .popupshow{
+    z-index:67;
+    opacity: 1;
+    transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+
+}

@@ -1,0 +1,69 @@
+body{
+    /*background: #fff;*/
+}
+.payout{
+    box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    /*background: #fff;*/
+    z-index: 100;
+    padding:.2rem;
+}
+.payout .payin{
+    background: #EBEBEB;
+}
+.payout .payin ul{
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: .2rem;
+}
+
+.payout li{
+    width:100%;
+    height:1rem;
+    line-height:1rem;
+    /*border-bottom: 1px solid #ddd;*/
+    font-size: 0.34rem;
+}
+.payout li .paytitle{
+    width:30%;
+    float: left;
+    color: #888888;
+}
+.payout li .payinfo{
+    width:70%;
+    float: left;
+    color: #000;
+}
+.payout .paybtn{
+    display: block;
+    width:100%;
+    height:1rem;
+    line-height:1rem;
+    margin-top:.3rem;
+    font-size: .4rem;
+    background: #D84E43;
+    color: #fff;
+    border-radius: 6px;
+    position: relative;
+}
+.payout .paybtn:after{
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}

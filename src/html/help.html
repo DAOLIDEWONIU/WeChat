@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>使用说明</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_nxf0maipkddbzkt9.css">
+    <link rel="stylesheet" href="../css/help.css">
+</head>
+<script>
+    /*
+     *重置浏览器的高度===对于有些手机存在导航栏，底部功能区遮挡页面内容===
+     */
+    document.documentElement.style.height = window.innerHeight + 'px';
+</script>
+<body>
+<div class="load-container loading">
+    <p class="iconfont">&#xe608;</p>
+    <div class="load">loading</div>
+</div>
+<div class="flexouter">
+    <div class="index">
+        <ul class="help-list">
+            <li class="title">微信操作流程</li>
+            <li class="title-nav">1、微信支付流程</li>
+            <li class="img"><img src="../imgs/help/help.png" alt="查询说明"></li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.load-container').fadeOut();
+    })
+</script>
+<script src="../js/rem.js"></script>
+<!--<script type="text/javascript" src="../js/OnlyWeChat.js"></script>-->
+</body>
+</html>

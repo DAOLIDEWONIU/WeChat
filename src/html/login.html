@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_j1orjf6sf9a4i.css">
+    <!--<link rel="stylesheet" href="../css/iconfont.css">-->
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="icon" href="../imgs/ico/logo.ico">
+    <script language="javascript">
+        /*重置浏览器的高度===对于有些手机存在导航栏，底部功能区遮挡页面内容==*/
+        // document.documentElement.style.height = window.innerHeight + 'px';
+       /*隐藏代码*/
+        // console.log(document.documentElement.style.height);
+        function clear(){
+            Source=document.body.firstChild.data;
+            document.open();
+            document.close();
+            document.title="看不到源代码";
+            document.body.innerHTML=Source;
+        }
+    </script>
+</head>
+<!--oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'-->
+<body>
+<div class="load-container loading">
+    <p class="iconfont">&#xe608;</p>
+    <div class="load">loading</div>
+</div>
+
+<div class="flexouter">
+    <div class="login-outer">
+    <!--logo-->
+    <div class="logo">
+        <img src="../imgs/logo.png" alt="logo">
+    </div>
+    <!--登录-->
+    <div class="login-cont">
+        <!--手机号-->
+        <div class="common-ipt phone clearfloat">
+            <i class="phoneicon iconfont"></i>
+            <input type="tel" class="iptout" id="username" maxlength="11" placeholder="请输入手机号" name="mobilePhoneNo" />
+            <div class="removeout">
+                <i class="iconfont icon-close-iconfont removeicon"></i>
+            </div>
+        </div>
+        <!--密码-->
+        <div class="common-ipt pass clearfloat">
+            <i class="passicon iconfont"></i>
+            <input type="password" class="iptout" id="password" placeholder="请输入密码" name="customerPass"/>
+            <div class="removeout">
+                <i class="iconfont icon-close-iconfont removeicon"></i>
+            </div>
+        </div>
+        <!--登录按钮-->
+        <div class="login-btn-out iconfont">
+            <div class="login-div-in">
+                <button type="submit" class="login-btn-in login-btn" id="login-btn" name="Login" disabled>登&nbsp;&nbsp;录</button>
+            </div>
+            <!--<div class="iconfont loginload">&#xe607;</div>-->
+        </div>
+        <!--忘记密码-->
+        <div class="forget-pass clearfloat">
+            <div class="forget"><a href="forgetpass.html">忘记密码?</a></div>
+            <div class="autoLogin">
+                <label>
+                    <input type="checkbox" name="checkbox" class="checkbox">
+                    <span>自动登录</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <!--注册按钮-->
+    <div class="reg-login">
+        <a href="register.html">注册</a>
+    </div>
+    <!--弹出层-->
+    <div class="popup"></div>
+</div>
+</div>
+<script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.load-container').fadeOut();
+    })
+</script>
+<script type="text/javascript" src="../js/rem.js"></script>
+<script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="../js/lib/jquery.base64.js"></script>
+<script type="text/javascript" src="../js/login.js"></script>
+<script type="text/javascript" src="../js/LoginUandle.js"></script>
+<!--<script type="text/javascript" src="../js/OnlyWeChat.js"></script>-->
+
+</body>
+</html>
